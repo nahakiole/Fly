@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+    overflow-y: scroll;
+}
+
+.caption h3 {
+    margin: 0;
+}
+
+.packages .thumbnail img {
+    margin: 15px auto;
+    width: 128px;
+}
+
+.packages .thumbnail {
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.packages .thumbnail .btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.navbar-gray {
+    background: #eeeeee;
+}
+
+.top5 {
+    margin-top: 5px;
+}
+
+.top7 {
+    margin-top: 7px;
+}
+
+.top10 {
+    margin-top: 10px;
+}
+
+.top15 {
+    margin-top: 15px;
+}
+
+.btn-add-software {
+    -webkit-transition: background 0.5s, border-color 0.5s;
+    -moz-transition: background 0.5s, border-color 0.5s;
+    -ms-transition: background 0.5s, border-color 0.5s;
+    -o-transition: background 0.5s, border-color 0.5s;
+    transition: background 0.5s, border-color 0.5s;
+}
+
+.btn-software-added, .btn-software-added:hover {
+    color: #ffffff;
+    background-color: #38b44a;
+    border-color: #38b44a;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+
+/*.panel-default>.panel-heading {*/
+/*background-color: #dd4814;*/
+/*color: #fff;*/
+/*}*/

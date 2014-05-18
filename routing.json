@@ -1,0 +1,44 @@
+{
+    "routes": [
+        {
+            "action": "indexAction",
+            "controller": "fly",
+            "match": ":^/$:"
+        },
+        {
+            "action": "aboutAction",
+            "controller": "fly",
+            "match": ":^/About$:"
+        },
+        {
+            "action": "faqAction",
+            "controller": "fly",
+            "match": ":^/FAQ:i"
+        },
+        {
+            "action": "dummyAction",
+            "controller": "fly",
+            "match": ":^/Download:i"
+        },
+        {
+            "action": "notFound",
+            "controller": "error",
+            "match": ":^/Error/404:"
+        },
+        {
+            "action": "serverError",
+            "controller": "error",
+            "match": ":^/Error/500:"
+        },
+        {
+            "action": "noAccess",
+            "controller": "error",
+            "match": ":^/Error/403:"
+        },
+        {
+            "action": "indexAction",
+            "controller": "test",
+            "match": ":^/testpage/?$:"
+        }
+    ]
+}

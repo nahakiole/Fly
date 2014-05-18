@@ -1,0 +1,15 @@
+{
+    "navigation": [
+
+        {
+            "text": "About",
+            "url": "/About",
+            "active_class": "active"
+        },
+        {
+            "text": "FAQ",
+            "url": "/FAQ",
+            "active_class": "active"
+        }
+    ]
+}
