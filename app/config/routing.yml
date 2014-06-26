@@ -1,0 +1,4 @@
+fly:
+    resource: "@FlyBundle/Resources/config/routing.yml"
+    prefix:   /
+
