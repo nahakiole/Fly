@@ -18,9 +18,9 @@ class FrontendResponse extends HTMLResponse {
     public function __construct($templatePath, $url)
     {
         parent::__construct($templatePath);
-        $navigation = new Navigation('navigation.json');
+        $navigation = new Navigation($url);
         $this->setTwigVariables([
-           'navigation' => $navigation->getNavigation($url)
+           'navigation' => $navigation->getNavigation('navigation.yaml')
         ]);
 
     }
