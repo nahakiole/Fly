@@ -1,3 +1,12 @@
 fly_homepage:
     path:     /
     defaults: { _controller: FlyBundle:Default:index }
+
+fly_about:
+    path:     /About
+    defaults: { _controller: FlyBundle:Default:about }
+
+fly_faq:
+    path:     /FAQ
+    defaults: { _controller: FlyBundle:Default:faq }
+

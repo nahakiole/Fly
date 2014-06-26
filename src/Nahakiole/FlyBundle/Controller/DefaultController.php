@@ -10,4 +10,15 @@ class DefaultController extends Controller
     {
         return $this->render('FlyBundle:Default:packages.html.twig');
     }
+
+    public function aboutAction(){
+
+        return $this->render('FlyBundle:Default:about.html.twig');
+    }
+
+
+    public function faqAction(){
+
+        return $this->render('FlyBundle:Default:faq.html.twig');
+    }
 }

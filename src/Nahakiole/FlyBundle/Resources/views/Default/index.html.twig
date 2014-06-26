@@ -40,19 +40,33 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand"
-               href="/">
+               href="{{ path('fly_homepage') }}">
                 <i class="fa fa-paper-plane"></i> Fly
             </a>
         </div>
         <div class="collapse navbar-collapse"
              id="bs-example-navbar-collapse-1">
-            {#<ul class="nav navbar-nav navbar-right">#}
-            {#{% for link in navigation %}#}
-            {#<li class="{{ link.active }}">#}
-            {#<a href=" {{ link.url }}">{{ link.text }}</a>#}
-            {#</li>#}
-            {#{% endfor %}#}
-            {#</ul>#}
+            <ul class="nav navbar-nav navbar-right">
+
+                <!-- This is bad and I should feel bad -->
+                {%- if app.request.get('_route') == 'fly_about' -%}
+                <li class="active">
+                    {%- else -%}
+
+                <li>
+                    {%- endif -%}
+                    <a href="{{ path('fly_about') }}">About</a></li>
+
+
+
+                {%- if app.request.get('_route') == 'fly_faq' -%}
+                <li class="active">
+                    {%- else -%}
+
+                <li>
+                    {%- endif -%}
+                    <a href="{{ path('fly_faq') }}">FAQ</a></li>
+            </ul>
         </div>
         <!-- /.navbar-collapse -->
 
