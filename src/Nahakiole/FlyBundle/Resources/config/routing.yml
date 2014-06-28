@@ -10,3 +10,10 @@ fly_faq:
     path:     /FAQ
     defaults: { _controller: FlyBundle:Default:faq }
 
+fly_download:
+    path:     /Download
+    defaults: { _controller: FlyBundle:Default:download }
+
+fly_package:
+    path:     /Package/{Package}
+    defaults: { _controller: FlyBundle:Default:package }

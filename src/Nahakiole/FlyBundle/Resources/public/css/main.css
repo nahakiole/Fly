@@ -11,7 +11,7 @@ body {
 
 .packages .thumbnail img {
     margin: 15px auto;
-    width: 128px;
+    width: 64px;
 }
 
 .packages .thumbnail {
@@ -21,8 +21,14 @@ body {
 
 .packages .thumbnail .btn {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+}
+
+.packages .thumbnail .btn:focus {
+    background: #38b44a;
 }
 
 .navbar-gray {
@@ -63,6 +69,25 @@ h2 {
     margin-top: 0;
 }
 
+
+.masonary {
+    -moz-column-width: 12em;
+    -webkit-column-width: 12em;
+    -moz-column-gap: 0em;
+    -webkit-column-gap: 0em;
+
+}
+
+.menu-category {
+    display: inline-block;
+    margin:  0.25rem;
+    padding:  1rem;
+    width:  100%;
+}
+
+.application-checkbox {
+    display: none;
+}
 
 /*.panel-default>.panel-heading {*/
 /*background-color: #dd4814;*/

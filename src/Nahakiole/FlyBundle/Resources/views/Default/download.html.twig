@@ -1,0 +1,68 @@
+{% extends "FlyBundle:Default:index.html.twig" %}
+
+{% block head %}
+
+    <meta HTTP-EQUIV="Refresh"
+          CONTENT="3; URL={{ url('fly_package', { Package: packageName }) }}">
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block header %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-md-12">
+                <h1>Almost done.</h1>
+
+                <p> The Download should start about now, when you've finished
+                    reading this extremely long boring sentence, which I
+                    cosmetically enlarged to shorten the time between when
+                    you've
+                    started reading and when the download starts.
+
+                </p>
+
+
+                If you want to re-download your file or if the download somehow
+                hasn't started yet visit
+                <br/>
+                <a href="{{ url('fly_package', { Package: packageName }) }}">{{ url('fly_package', { Package: packageName }) }}</a>
+
+                <br/> <br/>
+
+
+                Selected applications: <br/>
+
+
+                <span class="application-list">
+                {% for application in applications %}
+                    {% if loop.last and not loop.first %}
+                        and
+                    {% else %}
+                        {% if not loop.first %}
+                            ,
+                        {% endif %}
+                    {% endif %}
+
+                    <img src="{{ asset('bundles/fly/assets/') }}{{ application.icon }}"
+                         alt="{{ application.name }}"
+                         height="16"/>
+                    {{ application.name }}
+
+
+
+                {% endfor %}
+                </span>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
