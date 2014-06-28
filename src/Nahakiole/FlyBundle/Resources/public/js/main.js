@@ -23,7 +23,7 @@ jQuery(function () {
     jQuery('.start-building').click(function () {
         jQuery('html, body').animate({
             scrollTop: jQuery(".container-hero").offset().top + 20
-        }, 1337, 'easeInOutExpo');
+        }, 1337, 'easeOutQuint');
     });
 
 
