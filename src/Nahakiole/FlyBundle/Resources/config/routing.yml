@@ -17,3 +17,7 @@ fly_download:
 fly_package:
     path:     /Package/{Package}
     defaults: { _controller: FlyBundle:Default:package }
+
+user_routes:
+    resource: "@FlyBundle/Controller"
+    type: annotation
