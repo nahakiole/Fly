@@ -121,13 +121,16 @@
 </div>
 <!-- /container -->
 
-<script src="{{ asset('bundles/fly/js/vendor/jquery-1.11.0.min.js') }}"></script>
-<script src="{{ asset('bundles/fly/js/vendor/bootstrap.min.js') }}"></script>
-
-
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="{{ asset('bundles/fly/js/vendor/masonry.pkgd.min.js') }}"></script>
-<script src="{{ asset('bundles/fly/js/main.js') }}"></script>
+{% javascripts
+'@FlyBundle/Resources/public/js/vendor/jquery-1.11.0.min.js'
+'@FlyBundle/Resources/public/js/vendor/jquery.easing.min.js'
+'@FlyBundle/Resources/public/js/vendor/bootstrap.min.js'
+'@FlyBundle/Resources/public/js/vendor/masonry.pkgd.min.js'
+'@FlyBundle/Resources/public/js/main.js'
+output='js/compiled/main.js'
+%}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
