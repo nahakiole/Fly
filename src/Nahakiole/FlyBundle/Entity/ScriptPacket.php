@@ -7,19 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Script
  *
- * @ORM\Table()
- * @ORM\Entity
+ * @Orm\Entity()
  */
-class Script extends Packet
+class ScriptPacket extends Packet
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+
 
     /**
      * @var string
@@ -30,20 +22,10 @@ class Script extends Packet
 
 
     /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * Set source
      *
      * @param string $source
-     * @return Script
+     * @return ScriptPacket
      */
     public function setSource($source)
     {
@@ -60,5 +42,10 @@ class Script extends Packet
     public function getSource()
     {
         return $this->source;
+    }
+
+    function getScript()
+    {
+        return file_get_contents($this->source);
     }
 }

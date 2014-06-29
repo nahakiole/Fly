@@ -2,7 +2,9 @@
 
 namespace Nahakiole\FlyBundle\Controller;
 
+use Nahakiole\FlyBundle\Entity\Application;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -17,6 +19,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('\Nahakiole\FlyBundle\Entity\Application');
         $applications = $repository->findAll();
+
         return $this->render('FlyBundle:Default:packages.html.twig', ['applications' => $applications]);
     }
 
@@ -48,24 +51,34 @@ class DefaultController extends Controller
             return new RedirectResponse($this->generateUrl('fly_homepage'));
         }
         $applications = $repository->findById($applicationsToInstall);
-        return $this->render('FlyBundle:Default:download.html.twig', ['applications' => $applications, 'packageName' => $this->createPackageName()]);
+        return $this->render('FlyBundle:Default:download.html.twig', ['applications' => $applications, 'packageName' => $this->createPackage($applications)]);
     }
 
     public function packageAction($Package)
     {
-        return new Response('Content', Response::HTTP_OK, array('content-type' => 'application/octet-stream')); // the headers public attribute is a ResponseHeaderBagreturn $response;
+        $content = file_get_contents(__DIR__.'/../Resources/public/script/cached/'.$Package);
+        return new Response($content, Response::HTTP_OK, array('content-type' => 'application/octet-stream')); // the headers public attribute is a ResponseHeaderBagreturn $response;
     }
 
     /**
-     * @param Array $applicationId Array with the ids of the packages
+     * @param Application[] $applications Array with the ids of the packages
      * @return string Package name
      */
-    private function createPackage($applicationId)
+    private function createPackage($applications)
     {
-
-
+        $name = $this->createPackageName();
+        $script = '';
+        foreach ($applications as $application){
+            $script .= $application->getScript();
+        }
+        $baseScript = file_get_contents(__DIR__.'/../Resources/public/script/fly.sh');
+        file_put_contents(__DIR__.'/../Resources/public/script/cached/'.$name,str_replace('[[PACKET_SCRIPTS]]', $script, $baseScript));
+        return $name;
     }
 
+    /**
+     * @return string
+     */
     private function createPackageName()
     {
         $adjective = array_rand($this->adjectives);

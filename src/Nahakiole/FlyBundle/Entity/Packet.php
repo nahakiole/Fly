@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Packet
  *
- * @ORM\Table()
  * @ORM\Entity
+ * @ORM\InheritanceType("SINGLE_TABLE")
  */
 abstract class Packet
 {
@@ -30,9 +30,8 @@ abstract class Packet
 
     /**
      * @ORM\ManyToOne(targetEntity="Application", inversedBy="packets")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    protected $application;
+    private $application;
 
     /**
      * Get id
@@ -82,4 +81,9 @@ abstract class Packet
     {
         $this->application = $application;
     }
+
+    abstract function getScript();
+
+
+
 }

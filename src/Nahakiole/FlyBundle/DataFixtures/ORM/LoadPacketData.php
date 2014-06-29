@@ -7,6 +7,8 @@ namespace Nahakiole\FlyBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Nahakiole\FlyBundle\Entity\Application;
+use Nahakiole\FlyBundle\Entity\Repository;
+use Nahakiole\FlyBundle\Entity\RepositoryPacket;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
 class LoadPacketData extends ContainerAware implements FixtureInterface
@@ -17,52 +19,58 @@ class LoadPacketData extends ContainerAware implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $chrome = new Application();
-        $chrome->setName('Google Chrome');
-        $chrome->setDescription('This is a browser from Google based on the browser chromium');
-        $chrome->setIcon('chrome.png');
-
-        $opera = new Application();
-        $opera->setName('Opera');
-        $opera->setDescription('Opera is a web browser developed by Opera Software');
-        $opera->setIcon('opera.png');
 
         $firefox = new Application();
         $firefox->setName('Firefox');
         $firefox->setDescription('Mozilla Firefox is a free Webbrowser from Mozilla-Projektes.');
         $firefox->setIcon('firefox.png');
 
-        $firefox = new Application();
-        $firefox->setName('Firefox');
-        $firefox->setDescription('Mozilla Firefox is a free Webbrowser from Mozilla-Projektes.');
-        $firefox->setIcon('firefox.png');
+        $firefoxPacket = new RepositoryPacket();
+        $firefoxPacket->setName('firefox');
+        $firefox->addPacket($firefoxPacket);
 
-        $phpstorm  = new Application();
-        $phpstorm->setName('PHPStorm');
-        $phpstorm->setDescription('JetBrains PhpStorm is a commercial, cross-platform IDE for PHP');
-        $phpstorm->setIcon('phpstorm.png');
-
-        $vim  = new Application();
+        $vim = new Application();
         $vim->setName('VIM');
         $vim->setDescription('Vim (Vi IMproved) ist eine Weiterentwicklung des Texteditors vi.');
         $vim->setIcon('vim.png');
 
-        $filezilla  = new Application();
+
+        $vimPacket = new RepositoryPacket();
+        $vimPacket->setName('vim-gnome');
+        $vim->addPacket($vimPacket);
+
+
+        $filezilla = new Application();
         $filezilla->setName('Filezilla');
-        $filezilla->setDescription('FileZilla is free, cross-platform FTP application software, consisting of FileZilla Client and FileZilla Server.');
+        $filezilla->setDescription('FileZilla is free, cross-platform FTP application software.');
         $filezilla->setIcon('filezilla.png');
 
-        $ack  = new Application();
+        $filezillaPacket = new RepositoryPacket();
+        $filezillaPacket->setName('filezilla');
+        $filezilla->addPacket($filezillaPacket);
+
+
+        $ack = new Application();
         $ack->setName('Ack');
         $ack->setDescription('Ack is a tool like grep, optimized for programmers');
         $ack->setIcon('ack.png');
 
-        $manager->persist($chrome);
-        $manager->persist($opera);
+        $ackPacket = new RepositoryPacket();
+        $ackPacket->setName('ack-grep');
+        $ack->addPacket($ackPacket);
+
+
+
+
+        $manager->persist($firefoxPacket);
         $manager->persist($firefox);
-        $manager->persist($phpstorm);
+        $manager->persist($vimPacket);
         $manager->persist($vim);
+
+        $manager->persist($filezillaPacket);
         $manager->persist($filezilla);
+
+        $manager->persist($ackPacket);
         $manager->persist($ack);
         $manager->flush();
     }

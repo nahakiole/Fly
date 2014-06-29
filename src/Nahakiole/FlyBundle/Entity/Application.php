@@ -2,6 +2,7 @@
 
 namespace Nahakiole\FlyBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,9 +44,15 @@ class Application
     private $icon;
 
     /**
+     * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Packet", mappedBy="application")
      */
-    protected $packet;
+    private $packets;
+
+    function __construct()
+    {
+        $this->packets = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -129,16 +136,47 @@ class Application
     /**
      * @return mixed
      */
-    public function getPacket()
+    public function getPackets()
     {
-        return $this->packet;
+        return $this->packets->toArray();
     }
 
     /**
      * @param mixed $packet
      */
-    public function setPacket($packet)
+    public function setPackets($packet)
     {
-        $this->packet = $packet;
+        $this->packets = $packet;
+    }
+
+
+    /**
+     * @param mixed $packet
+     */
+    public function addPacket(Packet $packet)
+    {
+        $packet->setApplication($this);
+        $this->packets->add($packet);
+    }
+
+
+    /**
+     * @param mixed $packet
+     */
+    public function removePacket(Packet $packet)
+    {
+        $this->packets->remove($packet);
+    }
+    /**
+     * @return string
+     */
+    public function getScript(){
+        /**
+         * This will get better in time.
+         * I promise.
+         * @var $firstPacket Packet
+         */
+        $firstPacket = $this->packets->first();
+        return $firstPacket->getScript();
     }
 }
