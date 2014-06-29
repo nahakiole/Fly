@@ -42,6 +42,10 @@ class Application
      */
     private $icon;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Packet", mappedBy="application")
+     */
+    protected $packet;
 
     /**
      * Get id
@@ -120,5 +124,21 @@ class Application
     public function getIcon()
     {
         return $this->icon;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPacket()
+    {
+        return $this->packet;
+    }
+
+    /**
+     * @param mixed $packet
+     */
+    public function setPacket($packet)
+    {
+        $this->packet = $packet;
     }
 }

@@ -1,19 +1,15 @@
 <?php
 // src/Acme/HelloBundle/DataFixtures/ORM/LoadUserData.php
 
-namespace Acme\HelloBundle\DataFixtures\ORM;
+
+namespace Nahakiole\FlyBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Expenses\ExpensesBundle\Entity\CompanyFunction;
-use Expenses\ExpensesBundle\Entity\Role;
-use Expenses\ExpensesBundle\Entity\Worker;
-use Expenses\ExpensesBundle\Form\ExpenseType;
 use Nahakiole\FlyBundle\Entity\Application;
 use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadUserData extends ContainerAware implements FixtureInterface
+class LoadPacketData extends ContainerAware implements FixtureInterface
 {
 
     /**

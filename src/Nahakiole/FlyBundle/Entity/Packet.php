@@ -28,6 +28,11 @@ class Packet
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Application", inversedBy="packets")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $application;
 
     /**
      * Get id
@@ -60,5 +65,21 @@ class Packet
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApplication()
+    {
+        return $this->application;
+    }
+
+    /**
+     * @param mixed $application
+     */
+    public function setApplication($application)
+    {
+        $this->application = $application;
     }
 }
