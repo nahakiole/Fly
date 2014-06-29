@@ -117,6 +117,8 @@ ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VER=$(lsb_release -sr)
 # Main logic
 
+sudo apt-get update
+
 [[PACKET_SCRIPTS]]
 
 graceful_exit
