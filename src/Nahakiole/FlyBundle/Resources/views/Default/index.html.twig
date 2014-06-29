@@ -10,10 +10,17 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet"
-          href="{{ asset('bundles/fly/css/bootstrap.min.css') }} ">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
           rel="stylesheet">
+
+    {% stylesheets
+    'bundles/fly/css/bootstrap.min.css'
+    'bundles/fly/css/main.css'
+    filter='cssrewrite'
+    output='css/compiled/main.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 
     {% block head %}
 
@@ -24,8 +31,6 @@
             padding-bottom: 20px;
         }
     </style>
-    <link rel="stylesheet"
-          href="{{ asset('bundles/fly/css/main.css') }}">
 
     <script src="{{ asset('bundles/fly/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
 </head>
