@@ -1,0 +1,34 @@
+{% extends 'FlyBundle:Default:index.html.twig' %}
+
+{% block content -%}
+    <h1>Application edit</h1>
+
+    {{ form_start(edit_form, { 'style': 'horizontal' }) }}
+
+    {{ form_row(edit_form.name, { 'style': 'horizontal' }) }}
+    {{ form_row(edit_form.description, { 'style': 'horizontal' }) }}
+    {{ form_row(edit_form.icon, { 'style': 'horizontal' }) }}
+
+
+
+    <ul class="packets"
+        data-prototype="{{ form_widget(edit_form.packets.vars.prototype)|e }}">
+        {% for packet in edit_form.packets %}
+            <li>{{ form_widget(packet) }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ form_row(edit_form.submit, { 'style': 'horizontal', 'attr': {'class': 'top10'}  }) }}
+    {{ form_end(edit_form) }}
+
+
+    <ul class="record_actions btn-bottom">
+        <li>
+            <a class="btn btn-default" href="{{ path('application') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+
+{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace Nahakiole\FlyBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -34,6 +35,17 @@ class Distribution
      * @ORM\Column(name="PacketManager", type="string", length=255)
      */
     private $packetManager;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Packet", mappedBy="distribution", cascade={"remove"})
+     */
+    private $packets;
+
+    function __construct()
+    {
+        $this->packets = new ArrayCollection();
+    }
 
 
     /**
@@ -91,4 +103,35 @@ class Distribution
     {
         return $this->packetManager;
     }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getPackets()
+    {
+        return $this->packets;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $packets
+     */
+    public function setPackets($packets)
+    {
+        $this->packets = $packets;
+    }
+
+    function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+
 }

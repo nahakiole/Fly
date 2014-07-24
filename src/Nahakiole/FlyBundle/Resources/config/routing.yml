@@ -18,6 +18,14 @@ fly_package:
     path:     /Package/{Package}
     defaults: { _controller: FlyBundle:Default:package }
 
+FlyBundle_application:
+      resource: "@FlyBundle/Resources/config/routing/application.yml"
+      prefix:   /Application
+
 user_routes:
     resource: "@FlyBundle/Controller"
     type: annotation
+
+FlyBundle_distribution:
+        resource: "@FlyBundle/Resources/config/routing/distribution.yml"
+        prefix:   /Distribution

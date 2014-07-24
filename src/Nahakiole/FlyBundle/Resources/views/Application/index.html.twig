@@ -1,0 +1,45 @@
+{% extends 'FlyBundle:Default:index.html.twig' %}
+
+{% block content -%}
+<div class="col-md-12">
+    <h1>Application list</h1>
+
+    <table class="records_list table">
+        <thead>
+            <tr>
+                <th>Id</th>
+
+                <th>Icon</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th class="text-right">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('application_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+                <td>
+                    <img src="{{ asset('bundles/fly/assets/') }}{{ entity.icon }}"
+                         alt="..." height="32"></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.description }}</td>
+                <td class="text-right">
+
+                        <a class="btn btn-default" href="{{ path('application_show', { 'id': entity.id }) }}">show</a>
+
+                        <a class="btn btn-default" href="{{ path('application_edit', { 'id': entity.id }) }}">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a class="btn btn-primary" href="{{ path('application_new') }}">
+                Create a new entry
+            </a>
+</div>
+    {% endblock %}

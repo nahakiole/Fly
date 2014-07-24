@@ -2,6 +2,7 @@ parameters:
 #    fly.example.class: Nahakiole\FlyBundle\Example
 
 services:
-#    fly.example:
-#        class: %fly.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+  acme_your_bundle.name_of_your_form.form.type:
+    class: Nahakiole\FlyBundle\Form\PacketType
+    arguments:
+      entityManager: "@doctrine"

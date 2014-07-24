@@ -89,6 +89,27 @@ h2 {
     display: none;
 }
 
+footer {
+    margin-top: 50px;
+}
+
+ul.btn-bottom {
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+ul.btn-bottom > li {
+    display: inline-block;
+}
+
+ul.packets {
+    float: left;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+}
+
 /*.panel-default>.panel-heading {*/
 /*background-color: #dd4814;*/
 /*color: #fff;*/

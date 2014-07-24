@@ -45,7 +45,7 @@ class Application
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Packet", mappedBy="application")
+     * @ORM\OneToMany(targetEntity="Packet", mappedBy="application", cascade={"remove"})
      */
     private $packets;
 
@@ -138,7 +138,7 @@ class Application
      */
     public function getPackets()
     {
-        return $this->packets->toArray();
+        return $this->packets;
     }
 
     /**
@@ -177,6 +177,6 @@ class Application
          * @var $firstPacket Packet
          */
         $firstPacket = $this->packets->first();
-        return $firstPacket->getScript();
+        return $firstPacket->renderScript();
     }
 }

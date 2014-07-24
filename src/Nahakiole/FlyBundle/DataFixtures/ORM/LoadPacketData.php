@@ -7,6 +7,8 @@ namespace Nahakiole\FlyBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Nahakiole\FlyBundle\Entity\Application;
+use Nahakiole\FlyBundle\Entity\Distribution;
+use Nahakiole\FlyBundle\Entity\Packet;
 use Nahakiole\FlyBundle\Entity\Repository;
 use Nahakiole\FlyBundle\Entity\RepositoryPacket;
 use Symfony\Component\DependencyInjection\ContainerAware;
@@ -25,7 +27,7 @@ class LoadPacketData extends ContainerAware implements FixtureInterface
         $firefox->setDescription('Mozilla Firefox is a free Webbrowser from Mozilla-Projektes.');
         $firefox->setIcon('firefox.png');
 
-        $firefoxPacket = new RepositoryPacket();
+        $firefoxPacket = new Packet();
         $firefoxPacket->setName('firefox');
         $firefox->addPacket($firefoxPacket);
 
@@ -35,7 +37,7 @@ class LoadPacketData extends ContainerAware implements FixtureInterface
         $vim->setIcon('vim.png');
 
 
-        $vimPacket = new RepositoryPacket();
+        $vimPacket = new Packet();
         $vimPacket->setName('vim-gnome');
         $vim->addPacket($vimPacket);
 
@@ -45,7 +47,7 @@ class LoadPacketData extends ContainerAware implements FixtureInterface
         $filezilla->setDescription('FileZilla is free, cross-platform FTP application software.');
         $filezilla->setIcon('filezilla.png');
 
-        $filezillaPacket = new RepositoryPacket();
+        $filezillaPacket = new Packet();
         $filezillaPacket->setName('filezilla');
         $filezilla->addPacket($filezillaPacket);
 
@@ -55,13 +57,18 @@ class LoadPacketData extends ContainerAware implements FixtureInterface
         $ack->setDescription('Ack is a tool like grep, optimized for programmers');
         $ack->setIcon('ack.png');
 
-        $ackPacket = new RepositoryPacket();
+        $ackPacket = new Packet();
         $ackPacket->setName('ack-grep');
         $ack->addPacket($ackPacket);
 
+        $distribution = new Distribution();
+        $distribution->setName('Debian');
+        $distribution->setPacketManager('apt-get');
 
 
 
+
+        $manager->persist($distribution);
         $manager->persist($firefoxPacket);
         $manager->persist($firefox);
         $manager->persist($vimPacket);

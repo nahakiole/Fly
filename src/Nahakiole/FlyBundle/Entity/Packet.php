@@ -8,9 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * Packet
  *
  * @ORM\Entity
- * @ORM\InheritanceType("SINGLE_TABLE")
  */
-abstract class Packet
+class Packet
 {
     /**
      * @var integer
@@ -32,6 +31,23 @@ abstract class Packet
      * @ORM\ManyToOne(targetEntity="Application", inversedBy="packets")
      */
     private $application;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Distribution", inversedBy="packets")
+     */
+    private $distribution;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="source", type="string", length=255)
+     */
+    private $source;
+
+    function __construct()
+    {
+        $this->source = 'packet.sh';
+    }
 
     /**
      * Get id
@@ -82,8 +98,59 @@ abstract class Packet
         $this->application = $application;
     }
 
-    abstract function getScript();
 
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     * @return Packet
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    function getScript()
+    {
+        return file_get_contents(dirname(__DIR__) .'/Resources/public/script/'.$this->source);
+    }
+
+    function setScript($script){
+        file_put_contents(dirname(__DIR__) .'/Resources/public/script/'.$this->source,$script);
+    }
+
+    function renderScript(){
+        return file_get_contents(dirname(__DIR__) .'/Resources/public/script/'.$this->source);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDistribution()
+    {
+        return $this->distribution;
+    }
+
+    /**
+     * @param mixed $distribution
+     */
+    public function setDistribution($distribution)
+    {
+        $this->distribution = $distribution;
+    }
 
 
 }
