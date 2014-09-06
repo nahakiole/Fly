@@ -1,0 +1,30 @@
+distribution:
+    path:     /
+    defaults: { _controller: "FlyBundle:Distribution:index" }
+
+distribution_show:
+    path:     /{id}/show
+    defaults: { _controller: "FlyBundle:Distribution:show" }
+
+distribution_new:
+    path:     /new
+    defaults: { _controller: "FlyBundle:Distribution:new" }
+
+distribution_create:
+    path:     /create
+    defaults: { _controller: "FlyBundle:Distribution:create" }
+    requirements: { _method: post }
+
+distribution_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FlyBundle:Distribution:edit" }
+
+distribution_update:
+    path:     /{id}/update
+    defaults: { _controller: "FlyBundle:Distribution:update" }
+    requirements: { _method: post|put }
+
+distribution_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FlyBundle:Distribution:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,15 @@
+{% extends 'FlyBundle:Default:index.html.twig' %}
+
+{% block content -%}
+    <h1>Distribution creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('distribution') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'FlyBundle:Default:index.html.twig' %}
+
+{% block content -%}
+    <h1>Distribution list</h1>
+
+    <table class="records_list table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Packetmanager</th>
+                <th class="text-right">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('distribution_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.packetManager }}</td>
+                <td class="text-right">
+
+
+                        <a class="btn btn-default" href="{{ path('distribution_show', { 'id': entity.id }) }}">show</a>
+
+                        <a class="btn btn-default" href="{{ path('distribution_edit', { 'id': entity.id }) }}">edit</a>
+
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+            <a  class="btn btn-primary"  href="{{ path('distribution_new') }}">
+                Create a new entry
+            </a>
+
+    {% endblock %}

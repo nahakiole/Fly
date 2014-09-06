@@ -1,0 +1,298 @@
+{% extends "FlyBundle:Default:index.html.twig" %}
+
+{% block content %}
+    <form action="{{ path('fly_download') }}"
+          method="POST">
+
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-0 col-sm-6 top15">
+                <div class="btn-group">
+                    <button type="button"
+                            class="btn btn-default active">
+                        Debian
+                    </button>
+                    <button type="button"
+                            class="btn btn-default"
+                            disabled>
+                        Arch
+                    </button>
+                    <button type="button"
+                            class="btn btn-default"
+                            disabled>
+                        Fedora
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-md-offset-5 col-sm-6 top15">
+                <div class="form-group">
+                    <input type="text" name="filter"
+                           class="form-control filter"
+                           placeholder="Search">
+                </div>
+            </div>
+        </div>
+        <div class="row packages ">
+
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/chrome.jpg') }}"
+                         alt="...">
+
+                    <div class="caption">
+                        <h3>Google Chrome</h3>
+
+                        <p>This is a browser from Google based on the
+                            browser chromium</p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/firefox.png')  }}"
+                         alt="...">
+
+                    <div class="caption">
+                        <h3>Firefox</h3>
+
+                        <p>Mozilla Firefox is a free Webbrowser from
+                            Mozilla-Projektes.
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/opera.png')  }}"
+                         alt="...">
+
+                    <div class="caption">
+                        <h3>Opera</h3>
+
+                        <p>Opera is a web browser developed by Opera
+                            Software</p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/phpstorm.jpg')  }}"
+                         alt="...">
+
+                    <div class="caption">
+                        <h3>PHPStorm</h3>
+
+                        <p>JetBrains PhpStorm is a commercial, cross-platform
+                            IDE
+                            for PHP</p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/vim.png')  }}"
+                         alt="...">
+
+                    <div class="caption">
+                        <h3>VIM</h3>
+
+                        <p>Vim (Vi IMproved) ist eine Weiterentwicklung des Texteditors vi. </p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/filezilla.png') }} "
+                         alt="...">
+
+                    <div class="caption">
+                        <h3>Filezilla</h3>
+
+                        <p>FileZilla is free, cross-platform FTP application software, consisting of FileZilla Client and FileZilla Server.  </p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/ack.png')  }}"
+                         alt=" ">
+
+                    <div class="caption">
+                        <h3>Ack</h3>
+
+                        <p>Ack is a tool like grep, optimized for
+                            programmers</p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/skype.png')  }}"
+                         alt=" ">
+
+                    <div class="caption">
+                        <h3>Skype</h3>
+
+                        <p>Skype is a freemium voice-over-IP service and instant messaging client, currently developed by the Microsoft Skype Division.</p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/thunderbird.png')  }}"
+                         alt=" ">
+
+                    <div class="caption">
+                        <h3>Thunderbird</h3>
+
+                        <p>Mozilla Thunderbird is a open source email client developed by the Mozilla Foundation.</p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/pidgin.png')  }}"
+                         alt=" ">
+
+                    <div class="caption">
+                        <h3>Pidgin</h3>
+
+                        <p>Pidgin  is an open-source multi-platform instant messaging client, based on a library named libpurple.</p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="{{ asset('bundles/fly/assets/teamviewer.png')  }}"
+                         alt=" ">
+
+                    <div class="caption">
+                        <h3>Teamviewer</h3>
+
+                        <p>TeamViewer is a proprietary computer software package for desktop sharing between computers. </p>
+
+                        <p>
+                            <a href="#"
+                               class="btn btn-primary btn-add-software"
+                               role="button">Add
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-10 text-right">
+                <span class="count-packages">12</span> Packages selected.
+                <br/><br/>
+            </div>
+            <div class="col-md-2 text-right">
+                <button class="btn btn-primary btn-lg btn-block"
+                   ><i class="fa fa-download"></i> Download
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+{% endblock %}
+
+{% block header %}
+    <div class="container">
+        <div class="col-md-12">
+            <h1 class="text-center">Automatic package installation and
+                configuration</h1>
+
+            <p class="text-center">Choose from the packages below to create your
+                own package script for
+                super fast package installation. <br/> At the moment we only
+                support
+                debian based distributions but there's more to come.</p>
+
+            <p class="text-center">
+                <a class="btn btn-primary btn-lg start-building"
+                   role="button">Start building
+                </a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

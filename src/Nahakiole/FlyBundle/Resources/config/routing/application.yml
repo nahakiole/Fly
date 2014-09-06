@@ -1,0 +1,30 @@
+application:
+    path:     /
+    defaults: { _controller: "FlyBundle:Application:index" }
+
+application_show:
+    path:     /{id}/show
+    defaults: { _controller: "FlyBundle:Application:show" }
+
+application_new:
+    path:     /new
+    defaults: { _controller: "FlyBundle:Application:new" }
+
+application_create:
+    path:     /create
+    defaults: { _controller: "FlyBundle:Application:create" }
+    requirements: { _method: post }
+
+application_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FlyBundle:Application:edit" }
+
+application_update:
+    path:     /{id}/update
+    defaults: { _controller: "FlyBundle:Application:update" }
+    requirements: { _method: post|put }
+
+application_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FlyBundle:Application:delete" }
+    requirements: { _method: post|delete }
