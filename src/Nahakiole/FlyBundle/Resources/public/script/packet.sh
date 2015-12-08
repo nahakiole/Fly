@@ -1,1 +1,1 @@
-sudo apt-get install [[PACKET_NAME]]
+sudo apt-get install --yes [[PACKET_NAME]]
