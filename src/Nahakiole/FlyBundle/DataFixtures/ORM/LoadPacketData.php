@@ -19,59 +19,96 @@ class LoadPacketData extends ContainerAware implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
+        $packages = [
+          [
+              'name' => 'VLC Player',
+              'description' => 'VLC is a free and open source cross-platform multimedia player',
+              'id' => 'vlc'
+          ],
+          [
+              'name' => 'Firefox',
+              'description' => 'Mozilla Firefox is a free Webbrowser from Mozilla-Projektes.',
+              'id' => 'firefox'
+          ],
+          [
+              'name' => 'VIM',
+              'description' => 'Vim (Vi IMproved) ist eine Weiterentwicklung des Texteditors vi.',
+              'id' => 'vim'
+          ],
+          [
+              'name' => 'Filezilla',
+              'description' => 'FileZilla is free, cross-platform FTP application software.',
+              'id' => 'filezilla'
+          ],
+          [
+              'name' => 'Ack',
+              'description' => 'Ack is a tool like grep, optimized for programmers.',
+              'id' => 'ack-grep'
+          ],
+          [
+              'name' => 'Gimp',
+              'description' => 'It is a Free and Open Source, cross-platform image editor.',
+              'id' => 'gimp'
+          ],
+          [
+              'name' => 'Blender',
+              'description' => 'Blender is the free and open source 3D creation suite.',
+              'id' => 'blender'
+          ],
+          [
+              'name' => 'Frozen Bubble',
+              'description' => 'A fun open-source game.',
+              'id' => 'frozen-bubble'
+          ],
+          [
+              'name' => 'Inkscape',
+              'description' => 'Inkscape is a professional vector graphics editor.',
+              'id' => 'inkscape'
+          ],
+          [
+              'name' => 'Audacity',
+              'description' => 'A free multi-track audio editor and recorder.',
+              'id' => 'audacity'
+          ],
+          [
+              'name' => 'Kodi',
+              'description' => 'Kodi is an free and open source software media center.',
+              'id' => 'xbmc'
+          ],
+          [
+              'name' => 'Wine',
+              'description' => 'Run Windows applications on Linux, BSD, Solaris and Mac OS X.',
+              'id' => 'wine'
+          ],
+          [
+              'name' => 'Steam',
+              'description' => 'Steam is an digital distribution platform for games.',
+              'id' => 'steam'
+          ],
+          [
+              'name' => 'Pidgin',
+              'description' => 'Pidgin is an easy to use and free chat client used by millions. ',
+              'id' => 'pidgin'
+          ],
+          [
+              'name' => 'Deluge',
+              'description' => 'Pidgin is an easy to use and free chat client used by millions. ',
+              'id' => 'deluge'
+          ],
+        ];
 
-        $firefox = new Application();
-        $firefox->setName('Firefox');
-        $firefox->setDescription('Mozilla Firefox is a free Webbrowser from Mozilla-Projektes.');
-        $firefox->setIcon('firefox.png');
+        foreach ($packages as $package){
+            $app = new Application();
+            $app->setName($package['name']);
+            $app->setDescription($package['description']);
+            $app->setIcon($package['id'].'.png');
+            $appPacket = new RepositoryPacket();
+            $appPacket->setName($package['id']);
+            $app->addPacket($appPacket);
+            $manager->persist($app);
+            $manager->persist($appPacket);
+        }
 
-        $firefoxPacket = new RepositoryPacket();
-        $firefoxPacket->setName('firefox');
-        $firefox->addPacket($firefoxPacket);
-
-        $vim = new Application();
-        $vim->setName('VIM');
-        $vim->setDescription('Vim (Vi IMproved) ist eine Weiterentwicklung des Texteditors vi.');
-        $vim->setIcon('vim.png');
-
-
-        $vimPacket = new RepositoryPacket();
-        $vimPacket->setName('vim-gnome');
-        $vim->addPacket($vimPacket);
-
-
-        $filezilla = new Application();
-        $filezilla->setName('Filezilla');
-        $filezilla->setDescription('FileZilla is free, cross-platform FTP application software.');
-        $filezilla->setIcon('filezilla.png');
-
-        $filezillaPacket = new RepositoryPacket();
-        $filezillaPacket->setName('filezilla');
-        $filezilla->addPacket($filezillaPacket);
-
-
-        $ack = new Application();
-        $ack->setName('Ack');
-        $ack->setDescription('Ack is a tool like grep, optimized for programmers');
-        $ack->setIcon('ack.png');
-
-        $ackPacket = new RepositoryPacket();
-        $ackPacket->setName('ack-grep');
-        $ack->addPacket($ackPacket);
-
-
-
-
-        $manager->persist($firefoxPacket);
-        $manager->persist($firefox);
-        $manager->persist($vimPacket);
-        $manager->persist($vim);
-
-        $manager->persist($filezillaPacket);
-        $manager->persist($filezilla);
-
-        $manager->persist($ackPacket);
-        $manager->persist($ack);
         $manager->flush();
     }
 
