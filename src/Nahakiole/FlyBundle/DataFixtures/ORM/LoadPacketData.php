@@ -87,12 +87,12 @@ class LoadPacketData extends ContainerAware implements FixtureInterface
           ],
           [
               'name' => 'Pidgin',
-              'description' => 'Pidgin is an easy to use and free chat client used by millions. ',
+              'description' => 'Pidgin is an easy to use and free chat client used by millions.',
               'id' => 'pidgin'
           ],
           [
               'name' => 'Deluge',
-              'description' => 'Pidgin is an easy to use and free chat client used by millions. ',
+              'description' => 'Deluge is a free torrent client.',
               'id' => 'deluge'
           ],
         ];
