@@ -95,6 +95,36 @@ class LoadPacketData extends ContainerAware implements FixtureInterface
               'description' => 'Deluge is a free torrent client.',
               'id' => 'deluge'
           ],
+          [
+              'name' => 'Meld',
+              'description' => 'Meld is a visual diff and merge tool targeted at developers.',
+              'id' => 'meld'
+          ],
+          [
+              'name' => 'phpMyAdmin',
+              'description' => 'phpMyAdmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web.',
+              'id' => 'phpmyadmin'
+          ],
+          [
+              'name' => 'Dia',
+              'description' => 'Dia is a GTK+ based diagram creation program.',
+              'id' => 'dia'
+          ],
+          [
+              'name' => 'Chromium',
+              'description' => 'Chromium is a open-source browser.',
+              'id' => 'chromium-browser'
+          ],
+          [
+              'name' => 'GNOME Partition Editor',
+              'description' => 'GParted is a free partition editor for graphically managing your disk partitions.',
+              'id' => 'gparted'
+          ],
+          [
+              'name' => 'Git',
+              'description' => 'Git is a free and open source distributed version control system.',
+              'id' => 'git'
+          ],
         ];
 
         foreach ($packages as $package){
